@@ -1,3 +1,7 @@
 from django.shortcuts import render
 
-# Create your views here.
+def application_list(request):
+	return render(request, 'core/application_list.html')
+
+def statistics(request):
+	return render(request, 'core/statistics.html')
