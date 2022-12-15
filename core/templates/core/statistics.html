@@ -3,49 +3,21 @@
 {% block content %}
 
 <main>
-	<h2 class="display-6 text-center mb-4">Statistics</h2>
-	<div class="table-responsive">
-		{% if performance.approach_count_total > 0 %}
-		<table class="table text-center">
-			<thead>
-				<tr>
-					<th style="width: 40%";></th>
-					<th>Total (n approaches={{performance.approach_count_total}})</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><strong>Closes/Approaches</strong></td>
-					<td>{% widthratio performance.close_count_total performance.approach_count_total 100 %}%</td>
-				</tr>
-				<tr>
-					<td><strong>Dates/Closes</strong></td>
-					<td>{% widthratio performance.date_count_total performance.close_count_total 100 %}%</td>
-				</tr>
-			</tbody>
-		</table>
-		{% else %}
-		<h6 class="text-muted ml-auto m-0 text-center">No data to show</h6>
-		{% endif %}
-	</div>
-</main>
-
-<main>
 	<h2 class="display-6 text-center mb-4">Summary per Week</h2>
 	<div class="table-responsive">
 		{% if summary_week.count > 0 %}
 		<table class="table text-center">
 			<thead>
 				<tr>
-					<th style="width: 40%;">Week Number</th>
-					<th>Approach Count</th>
+					<th style="width: 40%;">Year / Week Number</th>
+					<th>Number of Applications</th>
 				</tr>
 			</thead>
 			<tbody>
 				{% for item in summary_week %}
 				<tr>
-					<td>{{ item.week_number }}</td>
-					<td>{{ item.approach_count }}</td>
+					<td>{{ item.year }} / {{ item.week }}</td>
+					<td>{{ item.number_of_applications }}</td>
 				</tr>
 				{% endfor %}
 			</tbody>
@@ -63,17 +35,46 @@
 		<table class="table text-center">
 			<thead>
 				<tr>
-					<th style="width: 40%";>Date</th>
-					<th>Approach Count</th>
+					<th style="width: 40%";>Day</th>
+					<th>Number of Applications</th>
 				</tr>
 			</thead>
 			<tbody>
 				{% for item in summary_day %}
 				<tr>
-					<td>{{ item.date_approach }}</td>
-					<td>{{ item.approach_count }}</td>
+					<td>{{ item.submitdate }}</td>
+					<td>{{ item.number_of_applications }}</td>
 				</tr>
 				{% endfor %}
+			</tbody>
+		</table>
+		{% else %}
+		<h6 class="text-muted ml-auto m-0 text-center">No data to show</h6>
+		{% endif %}
+	</div>
+</main>
+
+
+<main>
+	<h2 class="display-6 text-center mb-4">Applications Approved</h2>
+	<div class="table-responsive">
+		{% if summary_day.count > 0 %}
+		<table class="table text-center">
+			<thead>
+				<tr>
+					<th style="width: 40%";>Var</th>
+					<th>Stat</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Approved</td>
+					<td>{{ summary_approved }} ({% widthratio summary_approved application_list.count 100 %}%)</td>
+				</tr>
+				<tr>
+					<td>Not Approached</td>
+					<td>{{ summary_approved_not }} ({% widthratio summary_approved_not application_list.count 100 %}%)</td>
+				</tr>
 			</tbody>
 		</table>
 		{% else %}

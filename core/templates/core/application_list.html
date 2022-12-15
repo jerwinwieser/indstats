@@ -7,32 +7,29 @@
 	<div class="table-responsive">
 		{% if application_list.count > 0 %}
 		<table class="table text-center">
-			<caption style="text-align: center">
-				<i class="dot-close"></i> close
-				<i class="dot-reply"></i> reply
-			</caption>
 			<thead>
 				<tr>
-					<th style="border-bottom:1px solid #fff;"></th>
 					<th>#</th>
+					<th>Name</th>
+					<th>Date</th>
+					<th>Comment</th>
+					<th>Approved</th>
 				</tr>
 			</thead>
 			<tbody>
 				{% for application in application_list %}
-					{% if application.close == 'no' %}
-					<tr class="table-inactive">
-						<td style="border-bottom:1px solid #fff;"><i class="dot-lay"></i></td>
-					{% else %}
-					<tr>
-						<td style="border-bottom:1px solid #fff;"><i class="dot"></i></td>
-					{% endif %}
-						<th>{{ forloop.counter }}</th>
-					</tr>
+				<tr class="table">
+					<th>{{ forloop.counter }}</th>
+					<td>{{ application.name }}</td>
+					<td>{{ application.submitdate }}</td>
+					<td>{{ application.comments }}</td>
+					<td>{{ application.approved }}</td>
+				</tr>
 				{% endfor %}
 			</tbody>
 		</table>
 		{% else %}
-		<h6 class="text-muted ml-auto m-0 text-center">No data - start adding approaches by clicking the "+ Create Application"</h6>
+		<h6 class="text-muted ml-auto m-0 text-center">No data to show</h6>
 		{% endif %}
 	</div>
 </main>

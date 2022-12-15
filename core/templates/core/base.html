@@ -15,7 +15,7 @@
         <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
             <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
                 {% if user.is_authenticated %}
-                <span class="fs-4">IND Stats ({{ user.username }})</span>
+                <span class="fs-4">IND Stats ({{ user.email }})</span>
                 {% else %}
                 <span class="fs-4">IND Stats</span>
                 {% endif %}
@@ -24,7 +24,7 @@
                 <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'application_list' %}">Applications</a>
                 <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'statistics' %}">Statistics</a>
                 {% if user.is_authenticated %}
-                <button class="me-1 py-2 btn btn-danger btn-sm" type="submit" onclick="location.href='{% url 'account_logout' %}'" name='mybtn2'>Logout</button>
+                <a class="me-1 py-2 btn btn-danger btn-sm" href="{% url 'account_logout' %}">Logout</a>
                 {% else %}
                 <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'account_signup' %}">Signup</a>
                 <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'account_login' %}">Login</a>
@@ -40,7 +40,7 @@
 		{% endif %}
 		<div class="d-flex justify-content-center">
 			<div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4">
-				<button id="contact-create" class="btn btn-primary btn-lg" type="button" name="button"><i class=""></i>+ Create Application</button>
+                <a class="btn btn-primary btn-lg" href="{% url 'application_create' %}">+ Create Application</a>
 			</div>
 		</div>
 
