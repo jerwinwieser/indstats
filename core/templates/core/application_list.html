@@ -10,6 +10,7 @@
 			<thead>
 				<tr>
 					<th>#</th>
+					<th>Submitted by</th>
 					<th>Name</th>
 					<th>Date</th>
 					<th>Comment</th>
@@ -20,6 +21,7 @@
 				{% for application in application_list %}
 				<tr class="table">
 					<th>{{ forloop.counter }}</th>
+					<td>{{ application.created_by.email }}</td>
 					<td>{{ application.name }}</td>
 					<td>{{ application.submitdate }}</td>
 					<td>{{ application.comments }}</td>

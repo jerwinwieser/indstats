@@ -6,7 +6,7 @@ from .models import Application
 from .forms import ApplicationForm
 
 def application_list(request):
-	application_list = Application.objects.all()
+	application_list = Application.objects.all().order_by('-submitdate')
 	context = {
 		'application_list': application_list,
 	}
