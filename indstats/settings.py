@@ -156,6 +156,7 @@ ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_UNIQUE_EMAIL = True
 LOGIN_REDIRECT_URL = 'application_list'
 ACCOUNT_LOGOUT_REDIRECT_URL = 'application_list'
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 # Control the forms that django-allauth uses
 ACCOUNT_FORMS = {
