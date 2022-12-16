@@ -6,7 +6,7 @@ from .models import Application
 from .forms import ApplicationForm
 
 def application_list(request):
-	application_list = Application.objects.all().order_by('-submitdate')
+	application_list = Application.objects.all().order_by('-submit_date')
 	context = {
 		'application_list': application_list,
 	}
@@ -31,14 +31,14 @@ def application_create(request):
 def statistics(request):
 	application_list = Application.objects.all()
 	summary_week = Application.objects \
-		.annotate(week=ExtractWeek('submitdate'), year=ExtractYear('submitdate')) \
-		.values('year', 'week') \
-		.annotate(number_of_applications=Count('week')) \
-		.order_by('-year', '-week')
+		.annotate(week=ExtractWeek('submit_date'), year=ExtractYear('submit_date')) \
+		.values('submit_year', 'submit_week') \
+		.annotate(number_of_applications=Count('submit_week')) \
+		.order_by('-submit_year', '-submit_week')
 	summary_day = Application.objects \
-		.values('submitdate') \
-		.annotate(number_of_applications=Count('submitdate')) \
-		.order_by('-submitdate')
+		.values('submit_date') \
+		.annotate(number_of_applications=Count('submit_date')) \
+		.order_by('-submit_date')
 	summary_approved = Application.objects.filter(approved=True).count()
 	summary_approved_not = Application.objects.filter(approved=False).count()
 	context = {
