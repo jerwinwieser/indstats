@@ -16,7 +16,7 @@
 			<tbody>
 				{% for item in summary_week %}
 				<tr>
-					<td>{{ item.year }} / {{ item.week }}</td>
+					<td>{{ item.submit_year }} / {{ item.submit_week }}</td>
 					<td>{{ item.number_of_applications }}</td>
 				</tr>
 				{% endfor %}
@@ -40,7 +40,7 @@
 			<tbody>
 				{% for item in summary_day %}
 				<tr>
-					<td>{{ item.submitdate }}</td>
+					<td>{{ item.submit_date }}</td>
 					<td>{{ item.number_of_applications }}</td>
 				</tr>
 				{% endfor %}

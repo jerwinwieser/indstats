@@ -31,7 +31,7 @@ def application_create(request):
 def statistics(request):
 	application_list = Application.objects.all()
 	summary_week = Application.objects \
-		.annotate(week=ExtractWeek('submit_date'), year=ExtractYear('submit_date')) \
+		.annotate(submit_year=ExtractYear('submit_date'), submit_week=ExtractWeek('submit_date')) \
 		.values('submit_year', 'submit_week') \
 		.annotate(number_of_applications=Count('submit_week')) \
 		.order_by('-submit_year', '-submit_week')
