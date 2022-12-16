@@ -11,7 +11,7 @@
 				<tr>
 					<th>#</th>
 					<th>Submitted by</th>
-					<th>Name</th>
+					<th>Type</th>
 					<th>Date</th>
 					<th>Comment</th>
 					<th>Approved</th>
@@ -22,7 +22,7 @@
 				<tr class="table">
 					<th>{{ forloop.counter }}</th>
 					<td>{{ application.created_by.email }}</td>
-					<td>{{ application.name }}</td>
+					<td>{{ application.type }}</td>
 					<td>{{ application.submitdate }}</td>
 					<td>{{ application.comments }}</td>
 					<td>{{ application.approved }}</td>
