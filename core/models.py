@@ -3,8 +3,8 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 
 class Application(models.Model):
-	VISA = 'VS'
-	PASSPORT = 'PP'
+	VISA = 'Visa'
+	PASSPORT = 'Passport'
 	TYPE_CHOICES = [
 		(VISA, 'Visa'),
 		(PASSPORT, 'Passport'),
