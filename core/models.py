@@ -16,4 +16,4 @@ class Application(models.Model):
 	created_at = models.DateTimeField(editable=False, default=timezone.now)
 	created_by = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True, editable=False)
 	def __str__(self):
-		return self.name
+		return self.type
