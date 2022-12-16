@@ -3,7 +3,13 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 
 class Application(models.Model):
-	name = models.CharField(max_length=100, blank=False)
+	VISA = 'VS'
+	PASSPORT = 'PP'
+	TYPE_CHOICES = [
+		(VISA, 'Visa'),
+		(PASSPORT, 'Passport'),
+	]
+	type = models.CharField(max_length=100, choices=TYPE_CHOICES, default=VISA, blank=False)
 	submit_date = models.DateField(editable=True, blank=False)
 	comments = models.TextField(max_length=300, blank=True)
 	approved = models.BooleanField(blank=False, editable=True, default=False)

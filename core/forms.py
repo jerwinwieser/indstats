@@ -4,4 +4,4 @@ from core.models import Application
 class ApplicationForm(forms.ModelForm):
 	class Meta:
 		model = Application
-		fields = ['name', 'submit_date', 'comments']
+		fields = ['type', 'submit_date', 'comments']
