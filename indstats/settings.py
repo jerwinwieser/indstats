@@ -177,4 +177,5 @@ ACCOUNT_FORMS = {
     "disconnect": "allauth.socialaccount.forms.DisconnectForm",
 }
 
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
+django_heroku.settings(locals(), test_runner=False, staticfiles=False)
