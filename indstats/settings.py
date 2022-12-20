@@ -30,7 +30,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = (os.environ.get('DEBUG') == 'True')
 
-ALLOWED_HOSTS = ['127.0.0.1:8000', 'indstats.herokuapp.com']
+# ALLOWED_HOSTS = ['127.0.0.1:8000', 'indstats.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -152,8 +153,8 @@ STATICFILES_DIRS = [
 ]
 
 # Enable WhiteNoise's GZip compression of static assets.
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
